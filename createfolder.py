@@ -11,7 +11,7 @@ mydb = mysql.connector.connect(
   password="shraddha@2000",
   database="filepathsave"
 )
-
+mycursor = mydb.cursor()   
 
 
 def create_abc_folder():                      # Function to create the folder and save the path in the database
@@ -28,7 +28,7 @@ def create_abc_folder():                      # Function to create the folder an
         os.startfile(full_path)                 # Open the existing folder in the file explorer
 
     
-    mycursor = mydb.cursor()                        # Save the path in the database
+   # mycursor = mydb.cursor()                        # Save the path in the database
     mycursor.execute("INSERT INTO Pathsave (path) VALUES (%s)", (folder_path,))
     mydb.commit()
     mydb.close()
